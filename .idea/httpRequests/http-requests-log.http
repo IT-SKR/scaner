@@ -1,3 +1,59 @@
+GET http://127.0.0.1:8000/api/sxc/login?code=124335
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T100023.500.json
+
+###
+
+GET http://127.0.0.1:8000/api/sxc/login?code=124335
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T095715.200.json
+
+###
+
+GET http://127.0.0.1:8000/api/sxc/login?code=124335
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T095227.200.json
+
+###
+
+GET http://127.0.0.1:8000/api/sxc/login
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T095054.500.json
+
+###
+
+GET http://127.0.0.1:8000/api/sxc/login
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T095048.500.json
+
+###
+
+GET http://127.0.0.1:8000/api/sxc/login
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T095009.500.json
+
+###
+
+POST http://127.0.0.1:8000/api/sxc/login
+Accept: */*
+Cache-Control: no-cache
+
+<> 2019-12-09T094912.500.json
+
+###
+
 POST http://127.0.0.1:8000/api/sxc/login
 Accept: */*
 Cache-Control: no-cache
