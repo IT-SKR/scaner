@@ -42,8 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'passport',
-            'provider' => 'users',
+            'driver' => 'custom-token',
+//            'provider' => 'users',
 //            'hash' => false,
         ],
     ],
