@@ -15,13 +15,11 @@ class CreateDocsTable extends Migration
     {
         Schema::create('docs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->comment('用户ID');
+            $table->bigInteger('user_id')->comment('用户ID');
             $table->string('doc_name')->nullable()->comment('文档人的名称');
+            $table->string('doc_no')->nullable()->comment('文档人的识别码');
             $table->string('desc')->nullable()->comment('文件描述');
             $table->string('doc_at')->nullable()->comment('文档人的时间');
-            $table->json('pics')->nullable()->comment('图片');
-            $table->integer('pic_nums')->nullable()->comment('图片数量');
-
             $table->timestamps();
         });
     }

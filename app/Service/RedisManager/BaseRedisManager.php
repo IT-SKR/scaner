@@ -14,11 +14,12 @@ class BaseRedisManager
     public $connection = 'main';
 
     public static function setUserSession($token,$user){
-        Redis::set("user:token:$token",$user);
+
+        Redis::set("user:token:$token",$user->toJson());
     }
 
     public static function getUserSession($token){
-        return Redis::get("user:token:$token");
+        return json_decode(Redis::get("user:token:$token"));
     }
 
 

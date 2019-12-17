@@ -19,4 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/sxc/login', 'UserController@scx_login');
+
 Route::any('/doc/create', 'DocController@create');
+
+Route::any('/doc/index', 'DocController@index');
+
+Route::any('/doc/image/create', 'DocController@saveImage');
