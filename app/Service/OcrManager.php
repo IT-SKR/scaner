@@ -36,9 +36,12 @@ class OcrManager
         $doc_name = '';
         $doc_no = '';
         $doc_at = '';
+        $content = '';
 
 
         foreach ($items['TextDetections'] as $item){
+            //解析的文本内容
+            $content = $content.' '.$item['DetectedText'];
 
             if ($doc_name == ''){
                 $doc_name = self::getDocName($item['DetectedText']);
@@ -51,12 +54,14 @@ class OcrManager
             if ($doc_at == ''){
                 $doc_at = self::getDocAt($item['DetectedText']);
             }
+
         }
 
         return [
             'doc_name'=>$doc_name,
             'doc_no'=>$doc_no,
             'doc_at'=>$doc_at,
+            'desc'=>$content,
         ];
 
     }

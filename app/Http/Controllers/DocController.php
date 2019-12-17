@@ -25,7 +25,7 @@ class DocController extends Controller
         //端上需要传递当前获取到的最大 doc_id ，防止重复获取
         $doc_id = $request->has('doc_id')?$request->has('doc_id'):0;
         //没次只获取15条
-        $data = Doc::where('user_id',$user->id)->where('id','>',$doc_id)->get(15);
+        $data = Doc::where('user_id',$user->id)->where('id','>',$doc_id)->take(15)->get();
 
         return Skr::response('SUCCESS',$data);
 
@@ -43,8 +43,9 @@ class DocController extends Controller
         $docInfo = [];
         $doc_id = null;
         $doc_images = [];
+        Log::info('doc_create_all_request',$request->all());
 
-        foreach ($request->images as $image){
+        foreach ($request->images as $key=>$image){
 
             $imageUrl  = 'https://scaner.yuzhidushu.com/storage/'.$image;
 
@@ -67,6 +68,7 @@ class DocController extends Controller
             }
 
             $doc_images[] = [
+                'index'=>$key,
                 'doc_id'=>$doc_id,
                 'doc_image_url'=>$imageUrl,
                 'content'=>$res,
@@ -74,6 +76,10 @@ class DocController extends Controller
                 'created_at'=>time(),
                 'updated_at'=>time()
             ];
+        }
+
+        if (empty($doc_images)){
+            return Skr::response('PARAM_MIS');
         }
 
         DocImage::insert($doc_images);
